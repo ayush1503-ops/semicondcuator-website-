@@ -1,5 +1,3 @@
-"use client";
-
 import { useRef, useState, type FormEvent } from "react";
 import { ArrowRight, CheckCircle2, AlertTriangle } from "lucide-react";
 import { cx } from "@/lib/utils";

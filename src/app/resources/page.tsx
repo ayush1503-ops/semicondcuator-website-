@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { PageHero, SectionHead, CTALink } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
@@ -32,8 +32,7 @@ export default function ResourcesPage() {
         <div className="mx-auto max-w-[1440px] px-5 md:px-8">
           {/* featured */}
           <Reveal>
-            <Link
-              href={`/resources/${featured.slug}`}
+            <Link to={`/resources/${featured.slug}`}
               className="corners group grid gap-8 border border-line bg-panel p-8 transition-colors hover:border-signal/50 md:grid-cols-[1fr_auto] md:p-12"
             >
               <div>
@@ -59,8 +58,7 @@ export default function ResourcesPage() {
           <div className="mt-6 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {rest.map((a, i) => (
               <Reveal key={a.slug} delay={(i % 3) * 70}>
-                <Link
-                  href={`/resources/${a.slug}`}
+                <Link to={`/resources/${a.slug}`}
                   className="group flex h-full flex-col border border-line bg-panel p-7 transition-colors hover:border-signal/50"
                 >
                   <div className="flex items-center justify-between">

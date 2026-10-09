@@ -1,6 +1,4 @@
-"use client";
-
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { ArrowRight, GraduationCap, Cpu, Building2, Users, BriefcaseBusiness } from "lucide-react";
 import { SectionHead } from "@/components/ui";
 import { InViewScope, Reveal } from "@/components/Reveal";
@@ -120,7 +118,7 @@ export function EcosystemSection() {
         <div className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-3">
           {links.map((l, i) => (
             <Reveal key={l.title} delay={i * 90}>
-              <Link href={l.href} className="group flex h-full flex-col justify-between bg-white p-8 transition-colors hover:bg-navy/60">
+              <Link to={l.href} className="group flex h-full flex-col justify-between bg-white p-8 transition-colors hover:bg-navy/60">
                 <div>
                   <span className="font-mono text-[0.62rem] tracking-[0.3em] text-signal">0{i + 1}</span>
                   <h3 className="mt-4 font-display text-2xl text-paper">{l.title}</h3>

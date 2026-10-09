@@ -1,7 +1,5 @@
-"use client";
-
 import { useState } from "react";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { disciplines } from "@/lib/content";
 import { cx } from "@/lib/utils";
@@ -119,8 +117,7 @@ export function DisciplineIndex() {
                   </span>
                 ))}
               </div>
-              <Link
-                href={`/training/${current.course}`}
+              <Link to={`/training/${current.course}`}
                 className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-signal hover:text-flare"
               >
                 View program details <ArrowUpRight className="h-4 w-4" />
@@ -199,8 +196,7 @@ export function DisciplineIndex() {
                             {s}
                           </span>
                         ))}
-                        <Link
-                          href={`/training/${d.course}`}
+                        <Link to={`/training/${d.course}`}
                           className="px-2 py-0.5 font-mono text-[0.56rem] uppercase tracking-[0.12em] text-signal"
                         >
                           Program details →

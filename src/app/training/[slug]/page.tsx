@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, CheckCircle2, FlaskConical } from "lucide-react";
 import { courses } from "@/lib/content";
@@ -36,7 +36,7 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
         <div className="grid-bg absolute inset-0 opacity-40" aria-hidden="true" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,82,255,0.06),transparent_55%)]" aria-hidden="true" />
         <div className="relative mx-auto max-w-[1440px] px-5 md:px-8">
-          <Link href="/training" className="inline-flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.2em] text-mist transition-colors hover:text-signal">
+          <Link to="/training" className="inline-flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.2em] text-mist transition-colors hover:text-signal">
             <ArrowLeft className="h-4 w-4" /> All programs
           </Link>
           <Reveal className="mt-8">

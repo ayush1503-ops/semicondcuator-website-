@@ -1,8 +1,6 @@
-"use client";
-
 import { useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight, ChevronDown } from "lucide-react";
@@ -235,11 +233,10 @@ export function ChipExperience() {
                 )}
                 {s.cta && (
                   <div className="mt-8 flex flex-wrap gap-3">
-                    <Link href="/training" className="btn btn-primary">
+                    <Link to="/training" className="btn btn-primary">
                       Explore the programs <ArrowRight className="h-4 w-4" />
                     </Link>
-                    <Link
-                      href="/services"
+                    <Link to="/services"
                       className="btn border border-white/25 bg-transparent text-white hover:border-[#7FA6FF] hover:text-[#7FA6FF]"
                     >
                       Engineering services
@@ -378,7 +375,7 @@ function StaticChipIntro() {
             <p className="mt-4 text-sm leading-relaxed text-slate-400">
               From package anatomy backwards to the first line of RTL — stage by stage.
             </p>
-            <Link href="/training" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#7FA6FF]">
+            <Link to="/training" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#7FA6FF]">
               Explore programs <ArrowRight className="h-4 w-4" />
             </Link>
           </div>

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { EditorialHero } from "@/components/home/EditorialHero";
 import { ChipExperience } from "@/components/ChipExperience";
@@ -51,7 +51,7 @@ function Mission() {
               actually work — then connect that talent to universities, recruiters and chip
               companies.
             </p>
-            <Link href="/about" className="mt-6 inline-flex w-fit items-center gap-2 text-sm font-semibold text-signal hover:text-flare">
+            <Link to="/about" className="mt-6 inline-flex w-fit items-center gap-2 text-sm font-semibold text-signal hover:text-flare">
               How Chiprion works <ArrowRight className="h-4 w-4" />
             </Link>
           </Reveal>
@@ -106,7 +106,7 @@ function FeaturedPrograms() {
             }
           />
           <Reveal>
-            <Link href="/training" className="btn btn-ghost">
+            <Link to="/training" className="btn btn-ghost">
               All 10 programs <ArrowRight className="h-4 w-4" />
             </Link>
           </Reveal>
@@ -115,8 +115,7 @@ function FeaturedPrograms() {
         <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {featured.map((c, i) => (
             <Reveal key={c.slug} delay={i * 80}>
-              <Link
-                href={`/training/${c.slug}`}
+              <Link to={`/training/${c.slug}`}
                 className="group flex h-full flex-col rounded-2xl border border-line bg-white p-7 transition-all hover:-translate-y-1 hover:border-signal/60 hover:shadow-[0_16px_40px_rgba(15,23,42,0.08)]"
               >
                 <div className="flex items-center justify-between">
@@ -157,7 +156,7 @@ function ResourceTeaser() {
             }
           />
           <Reveal>
-            <Link href="/resources" className="btn btn-ghost">
+            <Link to="/resources" className="btn btn-ghost">
               All resources <ArrowRight className="h-4 w-4" />
             </Link>
           </Reveal>
@@ -166,8 +165,7 @@ function ResourceTeaser() {
         <div className="mt-14 grid gap-5 md:grid-cols-3">
           {articles.slice(0, 3).map((a, i) => (
             <Reveal key={a.slug} delay={i * 90}>
-              <Link
-                href={`/resources/${a.slug}`}
+              <Link to={`/resources/${a.slug}`}
                 className="group flex h-full flex-col rounded-2xl border border-line bg-white p-8 transition-all hover:-translate-y-1 hover:border-signal/60 hover:shadow-[0_16px_40px_rgba(15,23,42,0.08)]"
               >
                 <div className="flex items-center justify-between">
@@ -189,8 +187,7 @@ function ResourceTeaser() {
         </div>
 
         <Reveal className="mt-6">
-          <Link
-            href="/careers"
+          <Link to="/careers"
             className="group flex flex-col gap-6 rounded-2xl border border-line bg-white p-8 transition-all hover:border-signal/60 hover:shadow-[0_16px_40px_rgba(15,23,42,0.08)] md:flex-row md:items-center md:justify-between"
           >
             <div>

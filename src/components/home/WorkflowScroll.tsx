@@ -1,7 +1,5 @@
-"use client";
-
 import { useEffect, useRef } from "react";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight, FlaskConical, Wrench, Briefcase } from "lucide-react";
@@ -123,8 +121,7 @@ export function WorkflowScroll() {
             ))}
 
             <div className="flex w-full shrink-0 items-center lg:w-[22rem]">
-              <Link
-                href="/training"
+              <Link to="/training"
                 className="group flex w-full flex-col justify-between gap-8 rounded-2xl border-2 border-signal/40 bg-navy/60 p-8 transition-all hover:border-signal hover:shadow-[0_16px_40px_rgba(0,82,255,0.12)] lg:h-72"
               >
                 <span className="kicker">VIEW THE CURRICULUM</span>

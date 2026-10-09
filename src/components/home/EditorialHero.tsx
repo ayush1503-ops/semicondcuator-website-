@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
+
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
@@ -39,10 +39,10 @@ export function EditorialHero() {
                 specifications, reviews, coverage and closure.
               </p>
               <div className="mt-9 flex flex-wrap gap-4">
-                <Link href="/training" className="btn btn-primary">
+                <Link to="/training" className="btn btn-primary">
                   Explore Programs <ArrowRight className="h-4 w-4" />
                 </Link>
-                <Link href="/services" className="btn btn-ghost">
+                <Link to="/services" className="btn btn-ghost">
                   Discover Engineering Services
                 </Link>
               </div>
@@ -74,7 +74,7 @@ export function EditorialHero() {
                 aria-hidden="true"
               />
               <div className="corners relative overflow-hidden rounded-2xl border border-line bg-white">
-                <Image
+                <img
                   src="/images/hero-plate.jpg"
                   alt="Silicon chip package with exposed die on a light studio background"
                   width={880}

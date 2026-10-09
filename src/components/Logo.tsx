@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { cx } from "@/lib/utils";
 
 export function ChipMark({ className, onDark = false }: { className?: string; onDark?: boolean }) {
@@ -22,7 +22,7 @@ export function ChipMark({ className, onDark = false }: { className?: string; on
 
 export function Logo({ className, onDark = false }: { className?: string; onDark?: boolean }) {
   return (
-    <Link href="/" aria-label="Chiprion home" className={cx("group flex items-center gap-3", className)}>
+    <Link to="/" aria-label="Chiprion home" className={cx("group flex items-center gap-3", className)}>
       <ChipMark onDark={onDark} className="h-9 w-9 transition-transform duration-500 group-hover:rotate-90" />
       <span className="flex flex-col leading-none">
         <span

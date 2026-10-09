@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { Target, MessagesSquare, ClipboardCheck, Compass, GraduationCap, Building } from "lucide-react";
 import { PageHero, SectionHead } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
@@ -119,7 +119,7 @@ export default function CareersPage() {
                 </li>
               ))}
             </ul>
-            <Link href="/training/industry-internship" className="btn btn-primary mt-8">
+            <Link to="/training/industry-internship" className="btn btn-primary mt-8">
               View the internship track
             </Link>
           </div>

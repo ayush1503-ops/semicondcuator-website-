@@ -1,8 +1,6 @@
-"use client";
-
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
@@ -19,7 +17,7 @@ const links = [
 ];
 
 export function SiteNav() {
-  const pathname = usePathname();
+  const pathname = useLocation().pathname;
   const [scrolled, setScrolled] = useState(false);
   const [progress, setProgress] = useState(0);
   const [open, setOpen] = useState(false);
@@ -81,8 +79,7 @@ export function SiteNav() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <Link
-              href="/contact"
+            <Link to="/contact"
               className="btn btn-primary hidden !px-5 !py-2.5 md:inline-flex"
             >
               Enquire
@@ -136,8 +133,7 @@ export function SiteNav() {
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.05 + i * 0.05, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <Link
-                    href={l.href}
+                  <Link to={l.href}
                     className={cx(
                       "group flex items-baseline justify-between border-b border-line-soft py-4",
                       pathname === l.href ? "text-signal" : "text-paper"

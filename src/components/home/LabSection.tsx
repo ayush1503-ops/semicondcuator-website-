@@ -1,7 +1,5 @@
-"use client";
-
 import { useEffect, useRef } from "react";
-import Image from "next/image";
+
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CheckCircle2, Clock } from "lucide-react";
@@ -103,7 +101,7 @@ export function LabSection() {
             <figure>
               <div ref={imgWrap} className="corners relative aspect-[4/3] overflow-hidden rounded-2xl border border-line">
                 <div ref={img} className="absolute -inset-y-8 inset-x-0">
-                  <Image
+                  <img
                     src="/images/lab.jpg"
                     alt="Semiconductor engineering laboratory with oscilloscope waveforms"
                     fill

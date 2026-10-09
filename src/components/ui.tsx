@@ -1,5 +1,5 @@
-import Link from "next/link";
-import Image from "next/image";
+import { Link } from "react-router-dom";
+
 import type { ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 import { cx } from "@/lib/utils";
@@ -56,7 +56,7 @@ export function PageHero({
     <section className="relative overflow-hidden pt-36 pb-20 md:pt-48 md:pb-28">
       {image && (
         <>
-          <Image
+          <img
             src={image.src}
             alt={image.alt}
             fill
@@ -99,8 +99,7 @@ export function CTALink({
   className?: string;
 }) {
   return (
-    <Link
-      href={href}
+    <Link to={href}
       className={cx("btn", variant === "primary" ? "btn-primary" : "btn-ghost", className)}
     >
       {children}

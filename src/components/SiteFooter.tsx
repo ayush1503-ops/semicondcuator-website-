@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { Logo } from "./Logo";
 import { courses } from "@/lib/content";
 
@@ -36,13 +36,13 @@ export function SiteFooter() {
             <ul className="mt-5 space-y-3">
               {courses.slice(0, 6).map((c) => (
                 <li key={c.slug}>
-                  <Link href={`/training/${c.slug}`} className="text-sm text-slate-300 transition-colors hover:text-[#7DA2FF]">
+                  <Link to={`/training/${c.slug}`} className="text-sm text-slate-300 transition-colors hover:text-[#7DA2FF]">
                     {c.title}
                   </Link>
                 </li>
               ))}
               <li>
-                <Link href="/training" className="text-sm text-[#7DA2FF] transition-colors hover:text-white">
+                <Link to="/training" className="text-sm text-[#7DA2FF] transition-colors hover:text-white">
                   All programs →
                 </Link>
               </li>
@@ -54,7 +54,7 @@ export function SiteFooter() {
             <ul className="mt-5 space-y-3">
               {explore.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-sm text-slate-300 transition-colors hover:text-[#7DA2FF]">
+                  <Link to={l.href} className="text-sm text-slate-300 transition-colors hover:text-[#7DA2FF]">
                     {l.label}
                   </Link>
                 </li>
@@ -67,7 +67,7 @@ export function SiteFooter() {
             <ul className="mt-5 space-y-3">
               {company.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-sm text-slate-300 transition-colors hover:text-[#7DA2FF]">
+                  <Link to={l.href} className="text-sm text-slate-300 transition-colors hover:text-[#7DA2FF]">
                     {l.label}
                   </Link>
                 </li>
@@ -77,7 +77,7 @@ export function SiteFooter() {
               <p className="font-mono text-[0.6rem] tracking-[0.25em] text-slate-500">ENQUIRY DESK</p>
               <p className="mt-2 text-xs leading-relaxed text-slate-400">
                 Course, service and partnership enquiries are answered through the{" "}
-                <Link href="/contact" className="text-[#7DA2FF] hover:text-white">
+                <Link to="/contact" className="text-[#7DA2FF] hover:text-white">
                   enquiry form
                 </Link>
                 . Typical response within two business days.

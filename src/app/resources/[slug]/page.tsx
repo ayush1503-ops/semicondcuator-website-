@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { articles } from "@/lib/content";
@@ -31,7 +31,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       <section className="relative overflow-hidden border-b border-line-soft pt-36 pb-14 md:pt-48">
         <div className="grid-bg absolute inset-0 opacity-30" aria-hidden="true" />
         <div className="relative mx-auto max-w-3xl px-5 md:px-8">
-          <Link href="/resources" className="inline-flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.2em] text-mist hover:text-signal">
+          <Link to="/resources" className="inline-flex items-center gap-2 font-mono text-[0.68rem] uppercase tracking-[0.2em] text-mist hover:text-signal">
             <ArrowLeft className="h-4 w-4" /> All resources
           </Link>
           <Reveal className="mt-8">
@@ -73,11 +73,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
       <nav className="border-t border-line-soft bg-obsidian" aria-label="More articles">
         <div className="mx-auto grid max-w-[1440px] md:grid-cols-2">
-          <Link href={`/resources/${prev.slug}`} className="group border-b border-line-soft p-8 transition-colors hover:bg-navy/50 md:border-b-0 md:border-r">
+          <Link to={`/resources/${prev.slug}`} className="group border-b border-line-soft p-8 transition-colors hover:bg-navy/50 md:border-b-0 md:border-r">
             <span className="font-mono text-[0.6rem] uppercase tracking-[0.25em] text-ash">← Previous</span>
             <p className="mt-3 font-display text-lg font-semibold leading-snug text-paper">{prev.title}</p>
           </Link>
-          <Link href={`/resources/${next.slug}`} className="group flex items-start justify-between gap-4 p-8 transition-colors hover:bg-navy/50">
+          <Link to={`/resources/${next.slug}`} className="group flex items-start justify-between gap-4 p-8 transition-colors hover:bg-navy/50">
             <div>
               <span className="font-mono text-[0.6rem] uppercase tracking-[0.25em] text-ash">Next →</span>
               <p className="mt-3 font-display text-lg font-semibold leading-snug text-paper">{next.title}</p>

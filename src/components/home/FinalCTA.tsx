@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
+
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
@@ -65,7 +65,7 @@ export function FinalCTA() {
                 aria-hidden="true"
               />
               <div className="corners relative overflow-hidden rounded-2xl border border-line bg-white">
-                <Image
+                <img
                   src="/images/blueprint.jpg"
                   alt="Blueprint illustration of a silicon wafer floorplan in blue ink"
                   width={900}

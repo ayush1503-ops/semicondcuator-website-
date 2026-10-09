@@ -1,5 +1,3 @@
-"use client";
-
 import type { ReactNode } from "react";
 import { useInView, useReducedMotion } from "@/lib/hooks";
 import { cx } from "@/lib/utils";

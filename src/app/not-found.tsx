@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 
 export default function NotFound() {
@@ -13,7 +13,7 @@ export default function NotFound() {
         <p className="mt-6 leading-relaxed text-mist">
           This net leads nowhere — the page you are looking for was moved, renamed, or never routed.
         </p>
-        <Link href="/" className="btn btn-primary mt-10">
+        <Link to="/" className="btn btn-primary mt-10">
           <ArrowLeft className="h-4 w-4" /> Return to base
         </Link>
       </div>
