@@ -1,0 +1,331 @@
+@import "tailwindcss";
+
+@theme {
+  /* Off-white paper system */
+  --color-void: #fafaf9;
+  --color-obsidian: #ffffff;
+  --color-graphite: #f4f6f9;
+  --color-navy: #eef3fe;
+  --color-panel: #ffffff;
+  --color-line: #e2e8f0;
+  --color-line-soft: #eceef2;
+
+  /* Electric blue accent — used deliberately */
+  --color-signal: #0052ff;
+  --color-silicon: #4d7cff;
+  --color-flare: #3366ff;
+
+  /* Ink */
+  --color-paper: #0f172a;
+  --color-mist: #64748b;
+  --color-ash: #94a3b8;
+  --color-amber: #b45309;
+
+  --font-display: var(--font-sg), "Calistoga", Georgia, serif;
+  --font-body: var(--font-inter), "Inter", system-ui, sans-serif;
+  --font-mono: var(--font-jb), "JetBrains Mono", ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-void);
+  color: var(--color-paper);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* Calistoga ships at a single weight — keep it honest */
+.font-display {
+  font-weight: 400 !important;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: var(--color-signal);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-void);
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 8px;
+  border: 2px solid var(--color-void);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Typography helpers                                                  */
+/* ------------------------------------------------------------------ */
+.kicker {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-signal);
+  font-weight: 500;
+}
+
+.headline-xl {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.04;
+}
+
+.text-outline {
+  -webkit-text-stroke: 1.5px rgba(15, 23, 42, 0.16);
+  color: transparent;
+}
+
+/* ------------------------------------------------------------------ */
+/* Surfaces                                                            */
+/* ------------------------------------------------------------------ */
+.panel {
+  background: #ffffff;
+  border: 1px solid var(--color-line);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--color-line);
+}
+
+.hairline {
+  border-color: var(--color-line);
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 82, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 82, 255, 0.05) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+.grid-bg-fine {
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.045) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
+.corners {
+  position: relative;
+}
+.corners::before,
+.corners::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: rgba(0, 82, 255, 0.55);
+  border-style: solid;
+  pointer-events: none;
+}
+.corners::before {
+  top: -1px;
+  left: -1px;
+  border-width: 2px 0 0 2px;
+}
+.corners::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 2px 2px 0;
+}
+
+/* ------------------------------------------------------------------ */
+/* Buttons & links                                                     */
+/* ------------------------------------------------------------------ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.01em;
+  padding: 0.85rem 1.5rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+  white-space: nowrap;
+  min-height: 44px;
+}
+
+.btn-primary {
+  background: var(--color-signal);
+  color: #ffffff;
+}
+.btn-primary:hover {
+  background: #0043d6;
+  box-shadow: 0 8px 22px rgba(0, 82, 255, 0.22);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  border-color: #cbd5e1;
+  color: var(--color-paper);
+  background: #ffffff;
+}
+.btn-ghost:hover {
+  border-color: var(--color-signal);
+  color: var(--color-signal);
+  transform: translateY(-1px);
+}
+
+.link-line {
+  position: relative;
+  transition: color 0.3s;
+}
+.link-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 1.5px;
+  width: 100%;
+  background: var(--color-signal);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-line:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ------------------------------------------------------------------ */
+/* Motion                                                              */
+/* ------------------------------------------------------------------ */
+@keyframes trace-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes trace-flow {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+
+@keyframes pulse-node {
+  0%,
+  100% {
+    opacity: 0.5;
+    r: 3;
+  }
+  50% {
+    opacity: 1;
+    r: 4.5;
+  }
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.in-view .anim-trace {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: trace-draw 2.2s cubic-bezier(0.6, 0, 0.2, 1) forwards;
+}
+
+.anim-flow {
+  stroke-dasharray: 4 10;
+  animation: trace-flow 1.4s linear infinite;
+}
+
+.anim-node {
+  animation: pulse-node 2.4s ease-in-out infinite;
+}
+
+.anim-float {
+  animation: float-y 7s ease-in-out infinite;
+}
+
+.marquee-track {
+  animation: marquee-x 40s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .marquee-track {
+    animation: none !important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Chips & tags                                                        */
+/* ------------------------------------------------------------------ */
+.chip-tab {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.32rem 0.65rem;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--color-mist);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  white-space: nowrap;
+}
+.chip-tab .dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--color-signal);
+}
