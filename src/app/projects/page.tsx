@@ -110,7 +110,7 @@ export default function ProjectsPage() {
         <div className="mx-auto grid max-w-[1440px] gap-12 px-5 md:px-8 lg:grid-cols-2">
           <Reveal>
             <div className="corners relative aspect-[4/3] overflow-hidden border border-line">
-              <img src="/images/fab.jpg" alt="Semiconductor fabrication cleanroom" fill className="object-cover" sizes="(max-width:1024px) 100vw, 50vw" />
+              <img src="/images/fab.jpg" alt="Semiconductor fabrication cleanroom" className="absolute inset-0 w-full h-full object-cover" sizes="(max-width:1024px) 100vw, 50vw" />
               <div className="absolute inset-0 bg-gradient-to-t from-void/85 to-transparent" />
               <div className="absolute bottom-0 p-6">
                 <p className="kicker">PHYSICAL CONTEXT</p>

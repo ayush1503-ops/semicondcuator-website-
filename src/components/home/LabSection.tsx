@@ -104,8 +104,7 @@ export function LabSection() {
                   <img
                     src="/images/lab.jpg"
                     alt="Semiconductor engineering laboratory with oscilloscope waveforms"
-                    fill
-                    className="object-cover"
+                    className="absolute inset-0 w-full h-full object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                 </div>

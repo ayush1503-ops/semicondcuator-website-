@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { motion, type Variants } from "framer-motion";
 import { Logo } from "./Logo";
 import { courses } from "@/lib/content";
 
@@ -15,12 +16,30 @@ const company = [
   { href: "/contact", label: "Contact & Enquiries" },
 ];
 
+const easeOut = "cubic-bezier(0.22, 1, 0.36, 1)";
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.08 } },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: easeOut as any } },
+};
+
 export function SiteFooter() {
   return (
     <footer className="relative bg-[#0B1220] text-slate-300">
       <div className="relative mx-auto max-w-[1440px] px-5 py-16 md:px-8 md:py-20">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
-          <div>
+        <motion.div
+          className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={containerVariants}
+        >
+          <motion.div variants={itemVariants}>
             <Logo onDark />
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-slate-400">
               Semiconductor engineering education and design services — connecting
@@ -29,51 +48,51 @@ export function SiteFooter() {
             <p className="mt-6 font-mono text-[0.62rem] tracking-[0.3em] text-slate-500">
               RTL · VERIFY · IMPLEMENT · TAPE-OUT
             </p>
-          </div>
+          </motion.div>
 
-          <nav aria-label="Programs">
+          <motion.nav aria-label="Programs" variants={itemVariants}>
             <h3 className="font-mono text-[0.66rem] tracking-[0.28em] text-slate-500">PROGRAMS</h3>
             <ul className="mt-5 space-y-3">
               {courses.slice(0, 6).map((c) => (
-                <li key={c.slug}>
+                <motion.li key={c.slug} variants={itemVariants}>
                   <Link to={`/training/${c.slug}`} className="text-sm text-slate-300 transition-colors hover:text-[#7DA2FF]">
                     {c.title}
                   </Link>
-                </li>
+                </motion.li>
               ))}
-              <li>
+              <motion.li variants={itemVariants}>
                 <Link to="/training" className="text-sm text-[#7DA2FF] transition-colors hover:text-white">
                   All programs →
                 </Link>
-              </li>
+              </motion.li>
             </ul>
-          </nav>
+          </motion.nav>
 
-          <nav aria-label="Explore">
+          <motion.nav aria-label="Explore" variants={itemVariants}>
             <h3 className="font-mono text-[0.66rem] tracking-[0.28em] text-slate-500">EXPLORE</h3>
             <ul className="mt-5 space-y-3">
               {explore.map((l) => (
-                <li key={l.href}>
+                <motion.li key={l.href} variants={itemVariants}>
                   <Link to={l.href} className="text-sm text-slate-300 transition-colors hover:text-[#7DA2FF]">
                     {l.label}
                   </Link>
-                </li>
+                </motion.li>
               ))}
             </ul>
-          </nav>
+          </motion.nav>
 
-          <nav aria-label="Company">
+          <motion.nav aria-label="Company" variants={itemVariants}>
             <h3 className="font-mono text-[0.66rem] tracking-[0.28em] text-slate-500">COMPANY</h3>
             <ul className="mt-5 space-y-3">
               {company.map((l) => (
-                <li key={l.href}>
+                <motion.li key={l.href} variants={itemVariants}>
                   <Link to={l.href} className="text-sm text-slate-300 transition-colors hover:text-[#7DA2FF]">
                     {l.label}
                   </Link>
-                </li>
+                </motion.li>
               ))}
             </ul>
-            <div className="mt-8 rounded-xl border border-white/10 p-4">
+            <motion.div className="mt-8 rounded-xl border border-white/10 p-4" variants={itemVariants} whileHover={{ borderColor: "#0052FF", transition: { duration: 0.2 } }}>
               <p className="font-mono text-[0.6rem] tracking-[0.25em] text-slate-500">ENQUIRY DESK</p>
               <p className="mt-2 text-xs leading-relaxed text-slate-400">
                 Course, service and partnership enquiries are answered through the{" "}
@@ -82,11 +101,17 @@ export function SiteFooter() {
                 </Link>
                 . Typical response within two business days.
               </p>
-            </div>
-          </nav>
-        </div>
+            </motion.div>
+          </motion.nav>
+        </motion.div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
+        <motion.div
+          className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: easeOut as any }}
+        >
           <p className="font-mono text-[0.62rem] tracking-[0.25em] text-slate-500">
             © {new Date().getFullYear()} CHIPRION. ALL RIGHTS RESERVED.
           </p>
@@ -95,7 +120,7 @@ export function SiteFooter() {
             methodology. No placement rates, employer partnerships or outcome guarantees are implied
             unless explicitly stated in writing.
           </p>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

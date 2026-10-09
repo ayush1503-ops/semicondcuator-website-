@@ -59,9 +59,7 @@ export function PageHero({
           <img
             src={image.src}
             alt={image.alt}
-            fill
-            priority
-            className="object-cover opacity-35"
+            className="absolute inset-0 w-full h-full object-cover opacity-35"
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-void/70 via-void/80 to-void" />

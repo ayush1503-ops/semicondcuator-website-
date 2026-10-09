@@ -1,15 +1,11 @@
-import { useEffect, useRef } from "react";
-import dynamic from "next/dynamic";
+import { useEffect, useRef, Suspense, lazy } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { useReducedMotion } from "@/lib/hooks";
 
-const ChipCanvas = dynamic(() => import("./ChipCanvas"), {
-  ssr: false,
-  loading: () => <div className="absolute inset-0 bg-[#05070B]" />,
-});
+const ChipCanvas = lazy(() => import("./ChipCanvas"));
 
 /* ================================================================== */
 /* Scene copy — five acts                                               */
@@ -195,7 +191,9 @@ export function ChipExperience() {
       aria-label="Inside the package — scroll-driven semiconductor visualisation"
     >
       <div className="sticky top-0 h-screen overflow-hidden">
-        <ChipCanvas progress={target} onDomUpdate={(p) => onDomUpdate.current(p)} />
+        <Suspense fallback={<div className="absolute inset-0 bg-[#05070B]" />}>
+          <ChipCanvas progress={target} onDomUpdate={(p: number) => onDomUpdate.current(p)} />
+        </Suspense>
 
         {/* readability wash — keeps text legible without hiding the model */}
         <div

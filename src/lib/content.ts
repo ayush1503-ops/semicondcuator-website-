@@ -518,7 +518,43 @@ export const courses: Course[] = [
       "Build a DMA-driven data-acquisition firmware stack with diagnostics, documented for hardware validation use.",
     careers: ["Embedded engineer", "Firmware engineer", "Silicon validation engineer (path)"],
   },
-  
+  {
+    slug: "ai-augmented-design",
+    code: "CRX-401",
+    title: "AI-Augmented Design & Verification",
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800',
+    short:
+      "Integrate AI coding assistants into RTL and verification workflows with human review discipline.",
+    level: "Elective",
+    discipline: "AI × Silicon",
+    duration: "6 weeks · instructor-guided",
+    format: "Live online + guided labs",
+    overview:
+      "AI tools are entering the engineering loop — this course teaches how to use them responsibly. Learners integrate coding assistants into RTL authoring, testbench generation and coverage analysis, while maintaining the human review discipline that makes engineering credible.",
+    outcomes: [
+      "Use AI assistants for RTL scaffolding, FSM templates and protocol boilerplate",
+      "Generate and review constrained-random testbench components with AI",
+      "Apply AI to assertion drafting and coverage gap analysis",
+      "Establish review gates for every AI-assisted artefact",
+      "Document AI usage for auditability and knowledge transfer",
+    ],
+    modules: [
+      {
+        title: "AI in the engineering loop",
+        points: [
+          "How LLMs change RTL and verification workflows",
+          "Hallucination risks and review discipline",
+          "Audit trails for AI-assisted work",
+        ],
+      },
+      {
+        title: "AI in RTL authoring",
+        points: [
+          "Micro-architecture to RTL scaffolding",
+          "Interface and protocol boilerplate generation",
+          "CDC pattern templates and review checklists",
+        ],
+      },
       {
         title: "AI in verification productivity",
         points: [

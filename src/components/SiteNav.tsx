@@ -65,7 +65,7 @@ export function SiteNav() {
               return (
                 <Link
                   key={l.href}
-                  href={l.href}
+                  to={l.href}
                   aria-current={active ? "page" : undefined}
                   className={cx(
                     "link-line font-mono text-[0.7rem] uppercase tracking-[0.18em] transition-colors",

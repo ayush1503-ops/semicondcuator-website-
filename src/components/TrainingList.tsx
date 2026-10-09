@@ -39,7 +39,7 @@ export function TrainingList({ courses }: { courses: Course[] }) {
         {list.map((c) => (
           <Link
             key={c.slug}
-            href={`/training/${c.slug}`}
+            to={`/training/${c.slug}`}
             className="corners group flex h-full flex-col border border-line bg-panel overflow-hidden transition-all hover:border-signal/50 hover:bg-navy/40"
           >
             <div className="h-48 w-full overflow-hidden">
