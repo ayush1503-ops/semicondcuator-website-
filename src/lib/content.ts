@@ -23,7 +23,7 @@ export const courses: Course[] = [
     slug: "vlsi-fundamentals",
     code: "CRX-101",
     title: "VLSI Design Fundamentals",
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800',
+    image: '/images/vlsi-fundamentals.jpg',
     short:
       "The physics, logic and flow behind modern integrated circuits — the entry point into semiconductor engineering.",
     level: "Foundation",
@@ -87,7 +87,7 @@ export const courses: Course[] = [
     slug: "rtl-design-systemverilog",
     code: "CRX-201",
     title: "RTL Design with Verilog & SystemVerilog",
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800',
+    image: '/images/rtl-design.jpg',
     short:
       "Write synthesisable, review-quality RTL the way professional design teams expect it.",
     level: "Core",
@@ -151,7 +151,7 @@ export const courses: Course[] = [
     slug: "functional-verification",
     code: "CRX-202",
     title: "Functional Verification Essentials",
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800',
+    image: '/images/verification.jpg',
     short:
       "Build constrained-random, coverage-driven testbenches that find real bugs before silicon does.",
     level: "Core",
@@ -215,7 +215,7 @@ export const courses: Course[] = [
     slug: "systemverilog-uvm",
     code: "CRX-301",
     title: "SystemVerilog & UVM Methodology",
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800',
+    image: '/images/uvm.jpg',
     short:
       "Architect industrial-scale UVM environments: agents, sequences, register models and reuse.",
     level: "Advanced",
@@ -278,7 +278,7 @@ export const courses: Course[] = [
     slug: "physical-design",
     code: "CRX-210",
     title: "Physical Design & Implementation",
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800',
+    image: '/images/physical-design.jpg',
     short:
       "From netlist to tape-out: floorplanning, placement, clock-tree synthesis, routing and closure.",
     level: "Core",
@@ -342,7 +342,7 @@ export const courses: Course[] = [
     slug: "dft-engineering",
     code: "CRX-220",
     title: "Design for Testability (DFT)",
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800',
+    image: '/images/verification.jpg',
     short:
       "Scan, ATPG, boundary scan and MBIST — make silicon testable, diagnosable and manufacturable.",
     level: "Advanced",
@@ -402,7 +402,7 @@ export const courses: Course[] = [
     slug: "asic-soc-development",
     code: "CRX-310",
     title: "ASIC & SoC Development",
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800',
+    image: '/images/physical-design.jpg',
     short:
       "Architect complete SoCs: buses, processors, peripherals, integration and system verification.",
     level: "Advanced",
@@ -462,7 +462,7 @@ export const courses: Course[] = [
     slug: "embedded-systems",
     code: "CRX-230",
     title: "Embedded Systems & Firmware",
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800',
+    image: '/images/embedded.jpg',
     short:
       "Bare-metal to RTOS: firmware that brings silicon to life and validates hardware early.",
     level: "Core",
@@ -522,7 +522,7 @@ export const courses: Course[] = [
     slug: "ai-augmented-design",
     code: "CRX-401",
     title: "AI-Augmented Design & Verification",
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800',
+    image: '/images/ai-design.jpg',
     short:
       "Integrate AI coding assistants into RTL and verification workflows with human review discipline.",
     level: "Elective",
@@ -585,7 +585,7 @@ export const courses: Course[] = [
     slug: "industry-internship",
     code: "CRX-500",
     title: "Industry Internship Track",
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800',
+    image: '/images/about-team.jpg',
     short:
       "Mentored, project-based placement inside a live engineering workflow for programme graduates.",
     level: "Advanced",
