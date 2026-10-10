@@ -1,30 +1,21 @@
-import type { Metadata } from "next";
-import { Link } from "react-router-dom";
-import { notFound } from "next/navigation";
+import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { articles } from "@/lib/content";
 import { Reveal } from "@/components/Reveal";
 import { CTALink } from "@/components/ui";
+import { useEffect } from "react";
 
-export function generateStaticParams() {
-  return articles.map((a) => ({ slug: a.slug }));
-}
-
-export function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  return params.then(({ slug }) => {
-    const a = articles.find((x) => x.slug === slug);
-    if (!a) return { title: "Article not found" };
-    return { title: a.title, description: a.excerpt };
-  });
-}
-
-export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+export default function ArticlePage() {
+  const { slug } = useParams<{ slug: string }>();
   const idx = articles.findIndex((x) => x.slug === slug);
   const a = articles[idx];
-  if (!a) notFound();
+  if (!a) return <div>Article not found</div>;
   const next = articles[(idx + 1) % articles.length];
   const prev = articles[(idx - 1 + articles.length) % articles.length];
+
+  useEffect(() => {
+    document.title = `${a.title} · Chiprion`;
+  }, [a.title]);
 
   return (
     <>

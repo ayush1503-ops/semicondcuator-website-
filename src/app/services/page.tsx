@@ -1,16 +1,10 @@
-import type { Metadata } from "next";
 import { Layers, Search, PencilRuler, FileCheck } from "lucide-react";
 import { PageHero, SectionHead } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { EnquiryForm } from "@/components/EnquiryForm";
 import { services } from "@/lib/content";
 import { cx } from "@/lib/utils";
-
-export const metadata: Metadata = {
-  title: "Engineering Services — RTL, Verification, Physical Design, DFT, SoC",
-  description:
-    "Semiconductor engineering services: RTL design and development, functional verification, DV consulting, physical design support, DFT and test, ASIC/SoC engineering, embedded development and technical consultancy.",
-};
+import { useEffect } from "react";
 
 const statusStyle: Record<string, string> = {
   Offered: "text-signal border-signal/40",
@@ -42,6 +36,10 @@ const steps = [
 ];
 
 export default function ServicesPage() {
+  useEffect(() => {
+    document.title = "Engineering Services — RTL, Verification, Physical Design, DFT, SoC · Chiprion";
+  }, []);
+
   return (
     <>
       <PageHero

@@ -1,14 +1,8 @@
-import type { Metadata } from "next";
 import { Building2, Users, FlaskConical, BookOpen, Factory, Network } from "lucide-react";
 import { PageHero, SectionHead } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { EnquiryForm } from "@/components/EnquiryForm";
-
-export const metadata: Metadata = {
-  title: "Academic & Corporate Partnerships — Labs, Curriculum, Upskilling",
-  description:
-    "University collaborations, faculty development programs, semiconductor lab setup, institutional training, corporate upskilling and engineering talent development.",
-};
+import { useEffect } from "react";
 
 const models = [
   {
@@ -56,6 +50,10 @@ const models = [
 ];
 
 export default function PartnershipsPage() {
+  useEffect(() => {
+    document.title = "Academic & Corporate Partnerships — Labs, Curriculum, Upskilling · Chiprion";
+  }, []);
+
   return (
     <>
       <PageHero

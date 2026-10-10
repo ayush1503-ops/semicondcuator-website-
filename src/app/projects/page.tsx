@@ -1,14 +1,7 @@
-import type { Metadata } from "next";
-
 import { PageHero, SectionHead, CTALink } from "@/components/ui";
 import { Reveal, InViewScope } from "@/components/Reveal";
 import { projects } from "@/lib/content";
-
-export const metadata: Metadata = {
-  title: "Projects & Laboratories — Evidence Over Claims",
-  description:
-    "Chiprion training projects and laboratory capabilities: DMA subsystems, RISC-V verification, PnR closure, scan insertion, embedded firmware and SoC integration.",
-};
+import { useEffect } from "react";
 
 function TimingDiagram() {
   return (
@@ -38,6 +31,10 @@ function TimingDiagram() {
 }
 
 export default function ProjectsPage() {
+  useEffect(() => {
+    document.title = "Projects & Laboratories — Evidence Over Claims · Chiprion";
+  }, []);
+
   return (
     <>
       <PageHero

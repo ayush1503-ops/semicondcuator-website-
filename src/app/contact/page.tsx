@@ -1,13 +1,8 @@
-import type { Metadata } from "next";
 import { PageHero, SectionHead } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { EnquiryForm, type EnquiryType } from "@/components/EnquiryForm";
-
-export const metadata: Metadata = {
-  title: "Contact & Enquiries — Courses, Services, Partnerships",
-  description:
-    "Contact Chiprion for course enquiries, engineering services, academic and corporate partnerships, or career and internship conversations.",
-};
+import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const desks = [
   { k: "COURSE ENQUIRIES", d: "Program selection, schedules, cohort availability and advisory.", type: "course" as EnquiryType },
@@ -18,15 +13,16 @@ const desks = [
 
 const validTypes: EnquiryType[] = ["course", "service", "partnership", "career", "general"];
 
-export default async function ContactPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ type?: string }>;
-}) {
-  const { type } = await searchParams;
+export default function ContactPage() {
+  const [searchParams] = useSearchParams();
+  const type = searchParams?.get("type");
   const selected: EnquiryType = validTypes.includes(type as EnquiryType)
     ? (type as EnquiryType)
     : "general";
+
+  useEffect(() => {
+    document.title = "Contact & Enquiries — Courses, Services, Partnerships · Chiprion";
+  }, []);
 
   return (
     <>

@@ -1,17 +1,15 @@
-import type { Metadata } from "next";
 import { PageHero, SectionHead, CTALink } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { TrainingList } from "@/components/TrainingList";
 import { EnquiryForm } from "@/components/EnquiryForm";
 import { courses, workflowStages } from "@/lib/content";
-
-export const metadata: Metadata = {
-  title: "Training & Education — VLSI Programs from RTL to Tape-Out",
-  description:
-    "Ten structured semiconductor engineering programs: VLSI fundamentals, RTL design, SystemVerilog/UVM verification, physical design, DFT, ASIC/SoC, embedded systems and AI-assisted chip design.",
-};
+import { useEffect } from "react";
 
 export default function TrainingPage() {
+  useEffect(() => {
+    document.title = "Training & Education — VLSI Programs from RTL to Tape-Out · Chiprion";
+  }, []);
+
   return (
     <>
       <PageHero

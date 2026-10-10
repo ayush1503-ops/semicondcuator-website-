@@ -1,17 +1,14 @@
-import type { Metadata } from "next";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { PageHero, SectionHead, CTALink } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { articles } from "@/lib/content";
-
-export const metadata: Metadata = {
-  title: "Resources — VLSI Roadmaps, Tutorials & Interview Preparation",
-  description:
-    "Semiconductor engineering resources: VLSI learning roadmaps, UVM and timing-closure tutorials, interview preparation guides and honest industry analysis.",
-};
+import { useEffect } from "react";
 
 export default function ResourcesPage() {
+  useEffect(() => {
+    document.title = "Resources — VLSI Roadmaps, Tutorials & Interview Preparation · Chiprion";
+  }, []);
   const [featured, ...rest] = articles;
   return (
     <>

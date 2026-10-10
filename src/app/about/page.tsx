@@ -1,14 +1,7 @@
-import type { Metadata } from "next";
-
 import { PageHero, SectionHead, CTALink } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { disciplines } from "@/lib/content";
-
-export const metadata: Metadata = {
-  title: "About — Mission, Method and Engineering Standards",
-  description:
-    "Chiprion's mission: engineer the engineers the semiconductor industry needs — through evidence-based education, real design services and an honest industry ecosystem.",
-};
+import { useEffect } from "react";
 
 const principles = [
   {
@@ -34,6 +27,10 @@ const principles = [
 ];
 
 export default function AboutPage() {
+  useEffect(() => {
+    document.title = "About — Mission, Method and Engineering Standards · Chiprion";
+  }, []);
+
   return (
     <>
       <PageHero
@@ -126,7 +123,7 @@ export default function AboutPage() {
           </div>
           <Reveal delay={100}>
             <div className="corners relative aspect-[4/3] overflow-hidden border border-line lg:sticky lg:top-28">
-              <img src="/images/wafer.jpg" alt="Silicon wafer macro" fill className="object-cover" sizes="(max-width:1024px) 100vw, 50vw" />
+              <img src="/images/wafer.jpg" alt="Silicon wafer macro" className="w-full h-full object-cover" sizes="(max-width:1024px) 100vw, 50vw" />
               <div className="absolute inset-0 bg-gradient-to-t from-void/80 to-transparent" />
               <div className="absolute bottom-0 p-6">
                 <p className="font-mono text-[0.62rem] uppercase tracking-[0.24em] text-mist">

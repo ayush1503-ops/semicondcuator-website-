@@ -1,33 +1,21 @@
-import type { Metadata } from "next";
-import { Link } from "react-router-dom";
-import { notFound } from "next/navigation";
+import { Link, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowUpRight, CheckCircle2, FlaskConical } from "lucide-react";
 import { courses } from "@/lib/content";
 import { Tag } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { EnquiryForm } from "@/components/EnquiryForm";
+import { useEffect } from "react";
 
-export function generateStaticParams() {
-  return courses.map((c) => ({ slug: c.slug }));
-}
-
-export function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  return params.then(({ slug }) => {
-    const course = courses.find((c) => c.slug === slug);
-    if (!course) return { title: "Program not found" };
-    return {
-      title: `${course.title} (${course.code})`,
-      description: course.short,
-    };
-  });
-}
-
-export default async function CoursePage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+export default function CoursePage() {
+  const { slug } = useParams<{ slug: string }>();
   const course = courses.find((c) => c.slug === slug);
-  if (!course) notFound();
+  if (!course) return <div>Program not found</div>;
 
   const related = courses.filter((c) => c.slug !== slug && (c.discipline === course.discipline || c.level === course.level)).slice(0, 3);
+
+  useEffect(() => {
+    document.title = `${course.title} (${course.code}) · Chiprion`;
+  }, [course.title, course.code]);
 
   return (
     <>
@@ -199,7 +187,7 @@ export default async function CoursePage({ params }: { params: Promise<{ slug: s
           <h2 className="font-display text-2xl font-semibold text-paper md:text-3xl">Continue the path</h2>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {related.map((r) => (
-              <Link key={r.slug} href={`/training/${r.slug}`} className="group border border-line bg-panel p-6 transition-colors hover:border-signal/50">
+              <Link key={r.slug} to={`/training/${r.slug}`} className="group border border-line bg-panel p-6 transition-colors hover:border-signal/50">
                 <span className="font-mono text-[0.62rem] tracking-[0.25em] text-ash">{r.code}</span>
                 <h3 className="mt-3 font-display text-lg font-semibold leading-snug text-paper">{r.title}</h3>
                 <span className="mt-4 inline-flex items-center gap-2 font-mono text-[0.64rem] uppercase tracking-[0.18em] text-signal">

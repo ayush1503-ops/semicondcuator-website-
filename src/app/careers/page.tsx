@@ -1,15 +1,9 @@
-import type { Metadata } from "next";
 import { Link } from "react-router-dom";
 import { Target, MessagesSquare, ClipboardCheck, Compass, GraduationCap, Building } from "lucide-react";
 import { PageHero, SectionHead } from "@/components/ui";
 import { Reveal } from "@/components/Reveal";
 import { EnquiryForm } from "@/components/EnquiryForm";
-
-export const metadata: Metadata = {
-  title: "Careers — Mentorship, Interview Preparation, Internships",
-  description:
-    "Semiconductor career development with honest expectations: mentorship, technical assessments, interview preparation, internship track, placement assistance and employer partnerships.",
-};
+import { useEffect } from "react";
 
 const tracks = [
   {
@@ -51,6 +45,10 @@ const tracks = [
 ];
 
 export default function CareersPage() {
+  useEffect(() => {
+    document.title = "Careers — Mentorship, Interview Preparation, Internships · Chiprion";
+  }, []);
+
   return (
     <>
       <PageHero
